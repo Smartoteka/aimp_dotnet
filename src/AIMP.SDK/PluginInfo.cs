@@ -42,8 +42,7 @@ namespace AIMP.SDK
         /// <param name="assemblyName">Name of the assembly.</param>
         /// <param name="className">Name of the class.</param>
         /// <param name="pluginAttribute">The plugin attribute.</param>
-        public PluginInformation(FileInfo assemblyPath, string assemblyName, string className,
-            AimpPluginAttribute pluginAttribute)
+        public PluginInformation(FileInfo assemblyPath, string assemblyName, string className, AimpPluginAttribute pluginAttribute)
         {
             _inPathToAssembly = assemblyPath;
             PluginClassName = className;
@@ -59,14 +58,9 @@ namespace AIMP.SDK
         /// <param name="assemblyName">Name of the assembly.</param>
         /// <param name="className">Name of the class.</param>
         /// <param name="pluginAttribute">The plugin attribute.</param>
-        public PluginInformation(string assemblyPath, string assemblyName, string className,
-            AimpPluginAttribute pluginAttribute)
+        public PluginInformation(string assemblyPath, string assemblyName, string className, AimpPluginAttribute pluginAttribute)
+            : this(new FileInfo(assemblyPath), assemblyName, className, pluginAttribute)
         {
-            _inPathToAssembly = new FileInfo(assemblyPath);
-            PluginClassName = className;
-            PluginAssemblyName = assemblyName;
-            PluginInfo = pluginAttribute;
-            LoadedPlugin = null;
         }
 
 

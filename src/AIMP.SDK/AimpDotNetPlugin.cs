@@ -22,16 +22,6 @@ namespace AIMP.SDK
         public PluginInformation PluginInformation { get; set; }
 
         /// <summary>
-        ///     Gets or sets a value indicating whether this instance is debug mode.
-        /// </summary>
-        public bool IsDebugMode { get; set; }
-
-        /// <summary>
-        ///     Gets or sets the plugins collection.
-        /// </summary>
-        public DotNetPluginInfo AimpPlugin { get; set; }
-
-        /// <summary>
         ///     Plugin's author
         /// </summary>
         public string Author { get; set; }
