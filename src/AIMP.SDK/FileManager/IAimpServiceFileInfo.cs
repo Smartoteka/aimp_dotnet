@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.FileManager
 {
     public enum ServiceFileInfoFlags
@@ -16,36 +17,36 @@ namespace AIMP.SDK.FileManager
     }
 
     /// <summary>
-    /// Provide access to get information about virtual file.
+    ///     Provide access to get information about virtual file.
     /// </summary>
     public interface IAimpServiceFileInfo : IAimpService
     {
         /// <summary>
-        /// Gets the file information from virtual file.
+        ///     Gets the file information from virtual file.
         /// </summary>
         /// <param name="fileUri">The virtual file name.</param>
         /// <param name="fileInfoFlags">The file info flags.</param>
-        /// <param name="fileInfo">Out. The file info <see cref="IAimpFileInfo"/>.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <param name="fileInfo">Out. The file info <see cref="IAimpFileInfo" />.</param>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetFileInfoFromFileUri(string fileUri, ServiceFileInfoFlags fileInfoFlags,
             out IAimpFileInfo fileInfo);
 
         /// <summary>
-        /// Gets the file information from stream.
+        ///     Gets the file information from stream.
         /// </summary>
         /// <param name="fileStream">The file stream.</param>
         /// <param name="fileInfoFlags">The file info flags.</param>
-        /// <param name="fileInfo">Out. The file info <see cref="IAimpFileInfo"/>.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <param name="fileInfo">Out. The file info <see cref="IAimpFileInfo" />.</param>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetFileInfoFromStream(IAimpStream fileStream, ServiceFileInfoFlags fileInfoFlags,
             out IAimpFileInfo fileInfo);
 
         /// <summary>
-        /// Gets the virtual file.
+        ///     Gets the virtual file.
         /// </summary>
         /// <param name="fileUri">The virtual file name.</param>
-        /// <param name="virtualFile">Out. Virtual file <see cref="IAimpVirtualFile"/>.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <param name="virtualFile">Out. Virtual file <see cref="IAimpVirtualFile" />.</param>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetVirtualFile(string fileUri, out IAimpVirtualFile virtualFile);
     }
 }

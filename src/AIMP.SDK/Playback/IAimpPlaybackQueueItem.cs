@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using AIMP.SDK.Playlist;
 
 namespace AIMP.SDK.Playback

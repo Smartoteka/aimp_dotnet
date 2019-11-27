@@ -12,42 +12,42 @@
 namespace AIMP.SDK
 {
     /// <summary>
-    /// AIMP Operation Result.
+    ///     AIMP Operation Result.
     /// </summary>
     public enum AimpActionResult : uint
     {
         /// <summary>
-        /// Operation successful complete.
+        ///     Operation successful complete.
         /// </summary>
         OK = 0x00000000,
 
         /// <summary>
-        /// General access denied error.
+        ///     General access denied error.
         /// </summary>
         AccessDenied = 0x80070005,
 
         /// <summary>
-        /// Handle that is not valid.
+        ///     Handle that is not valid.
         /// </summary>
         Handle = 0x80070006,
 
         /// <summary>
-        /// One or more arguments are not valid.
+        ///     One or more arguments are not valid.
         /// </summary>
         InvalidArguments = 0x80070057,
 
         /// <summary>
-        /// Not implemented.
+        ///     Not implemented.
         /// </summary>
         NotImplemented = 0x80004001,
 
         /// <summary>
-        /// Unexpected failure.
+        ///     Unexpected failure.
         /// </summary>
         Unexpected = 0x8000FFFF,
 
         /// <summary>
-        /// Unspecified failure.
+        ///     Unspecified failure.
         /// </summary>
         Fail = 0x80004005
     }

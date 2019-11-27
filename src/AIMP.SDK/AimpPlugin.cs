@@ -8,47 +8,48 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
+using System.Diagnostics;
+using AIMP.SDK.Player;
 
 namespace AIMP.SDK
 {
-    using Player;
-
     /// <summary>
-    /// AIMP plugin interface.
+    ///     AIMP plugin interface.
     /// </summary>
     public interface IAimpPlugin : IDisposable
     {
         /// <summary>
-        /// Initializes this instance.
+        ///     Initializes this instance.
         /// </summary>
         void Initialize();
     }
 
     /// <summary>
-    /// Base class for AIMP Plugin.
+    ///     Base class for AIMP Plugin.
     /// </summary>
     public abstract class AimpPlugin : IAimpPlugin
     {
         public IAimpPlayer AimpPlayer { get; set; }
 
         /// <summary>
-        /// Gets or sets the plugin identifier.
+        ///     Gets or sets the plugin identifier.
         /// </summary>
         public int PluginId { get; set; }
 
         /// <summary>
-        /// Gets the main player interface <see cref="IAimpPlayer"/>.
+        ///     Gets the main player interface <see cref="IAimpPlayer" />.
         /// </summary>
         public IAimpPlayer Player => AimpPlayer;
 
         /// <summary>
-        /// Inside this function, plugin should perform all initialization.
+        ///     Inside this function, plugin should perform all initialization.
         /// </summary>
         public abstract void Initialize();
 
         /// <summary>
-        /// Inside this function, plugin should dispose all resources.
+        ///     Inside this function, plugin should dispose all resources.
         /// </summary>
         public abstract void Dispose();
 
@@ -57,7 +58,9 @@ namespace AIMP.SDK
             Dispose();
 #if DEBUG
             if (AimpPlayer == null)
-                System.Diagnostics.Debugger.Break();
+            {
+                Debugger.Break();
+            }
 #endif
             if (AimpPlayer != null)
             {
@@ -70,10 +73,12 @@ namespace AIMP.SDK
         {
 #if DEBUG
             if (player == null)
-                System.Diagnostics.Debugger.Break();
+            {
+                Debugger.Break();
+            }
 #endif
             PluginId = unId;
-            AimpPlayer = (IAimpPlayer)player;
+            AimpPlayer = player;
             Initialize();
         }
     }

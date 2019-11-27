@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 using AIMP.SDK.FileManager;
 
@@ -16,12 +17,12 @@ namespace AIMP.SDK.Lyrics
     public enum LyricsFlags
     {
         /// <summary>
-        /// Search without cache.
+        ///     Search without cache.
         /// </summary>
         Nocache = 1,
 
         /// <summary>
-        /// The method will not return a control until the operation is completed.
+        ///     The method will not return a control until the operation is completed.
         /// </summary>
         WaitFor = 4
     }
@@ -29,12 +30,12 @@ namespace AIMP.SDK.Lyrics
     public delegate void AimpServiceLyricsReceive(IAimpLyrics lyrics, object userData);
 
     /// <summary>
-    /// Allowed access to the song text.
+    ///     Allowed access to the song text.
     /// </summary>
     public interface IAimpServiceLyrics : IAimpService
     {
         /// <summary>
-        /// Gets a lyrics for file.
+        ///     Gets a lyrics for file.
         /// </summary>
         /// <param name="fileInfo"></param>
         /// <param name=""></param>
@@ -42,13 +43,12 @@ namespace AIMP.SDK.Lyrics
         AimpActionResult Get(IAimpFileInfo fileInfo, LyricsFlags flags, object userData, out IntPtr taskId);
 
         /// <summary>
-        /// Aborts a current active task.
+        ///     Aborts a current active task.
         /// </summary>
         /// <returns></returns>
         AimpActionResult Cancel(IntPtr taskId, LyricsFlags flags);
 
         /// <summary>
-        /// 
         /// </summary>
         event AimpServiceLyricsReceive LyricsReceive;
     }

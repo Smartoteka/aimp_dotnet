@@ -8,8 +8,10 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.FileManager
 {
     public interface IAimpServiceFileInfoFormatterUtils
-    {}
+    {
+    }
 }

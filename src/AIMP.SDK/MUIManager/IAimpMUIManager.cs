@@ -8,29 +8,30 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.MUIManager
 {
     /// <summary>
-    /// MUI manager.
+    ///     MUI manager.
     /// </summary>
     // ReSharper disable InconsistentNaming
     public interface IAimpMUIManager : IAimpService
         // ReSharper restore InconsistentNaming
     {
         /// <summary>
-        /// Gets the current locale name.
+        ///     Gets the current locale name.
         /// </summary>
         /// <returns></returns>
         string GetName();
 
         /// <summary>
-        /// Gets the value.
+        ///     Gets the value.
         /// </summary>
         /// <param name="key">The key.</param>
         string GetValue(string key);
 
         /// <summary>
-        /// Gets the value part.
+        ///     Gets the value part.
         /// </summary>
         /// <param name="key">The key.</param>
         /// <param name="index">The index.</param>

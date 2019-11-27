@@ -8,10 +8,10 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.MenuManager
 {
     /// <summary>
-    /// 
     /// </summary>
     public enum MenuItemPropertyType
     {
@@ -39,7 +39,7 @@ namespace AIMP.SDK.MenuManager
     }
 
     /// <summary>
-    /// AIMP Parent menu item.
+    ///     AIMP Parent menu item.
     /// </summary>
     public enum ParentMenuType
     {
@@ -81,49 +81,49 @@ namespace AIMP.SDK.MenuManager
     }
 
     /// <summary>
-    /// Menu manager interface.
+    ///     Menu manager interface.
     /// </summary>
     public interface IAimpServiceMenuManager : IAimpService
     {
         AimpActionResult CreateMenuItem(out IAimpMenuItem item);
 
         /// <summary>
-        /// Adds the new menu item..
+        ///     Adds the new menu item..
         /// </summary>
         /// <param name="parentMenuType"></param>
-        /// <param name="item">Menu item <see cref="IAimpMenuItem"/>.</param>
+        /// <param name="item">Menu item <see cref="IAimpMenuItem" />.</param>
         AimpActionResult Add(ParentMenuType parentMenuType, IAimpMenuItem item);
 
         /// <summary>
-        /// Adds the new menu item.
+        ///     Adds the new menu item.
         /// </summary>
-        /// <param name="item">Menu item <see cref="IAimpMenuItem"/>.</param>
+        /// <param name="item">Menu item <see cref="IAimpMenuItem" />.</param>
         AimpActionResult Add(IAimpMenuItem item);
 
         /// <summary>
-        /// Deletes the menu item.
+        ///     Deletes the menu item.
         /// </summary>
         /// <param name="item">The menu item.</param>
         AimpActionResult Delete(IAimpMenuItem item);
 
         /// <summary>
-        /// Deletes the menu item.
+        ///     Deletes the menu item.
         /// </summary>
         /// <param name="id">The identifier.</param>
         AimpActionResult Delete(string id);
 
         /// <summary>
-        /// Gets the by identifier.
+        ///     Gets the by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="item">Menu item <see cref="IAimpMenuItem"/>.</param>
+        /// <param name="item">Menu item <see cref="IAimpMenuItem" />.</param>
         AimpActionResult GetById(string id, out IAimpMenuItem item);
 
         /// <summary>
-        /// Gets the standard menu item.
+        ///     Gets the standard menu item.
         /// </summary>
         /// <param name="menuType">Type of the menu.</param>
-        /// <param name="item">Menu item <see cref="IAimpMenuItem"/>.</param>
+        /// <param name="item">Menu item <see cref="IAimpMenuItem" />.</param>
         AimpActionResult GetBuiltIn(ParentMenuType menuType, out IAimpMenuItem item);
     }
 }

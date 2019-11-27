@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.Playback
 {
     public delegate bool AimpCheckUrl(ref string url);

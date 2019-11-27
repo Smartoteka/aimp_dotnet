@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using AIMP.SDK.FileManager;
 
 namespace AIMP.SDK.TagEditor

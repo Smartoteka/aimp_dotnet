@@ -8,45 +8,46 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.Playlist
 {
     /// <summary>
-    /// The interface describes playlist group that can contains one or more playlist items.
+    ///     The interface describes playlist group that can contains one or more playlist items.
     /// </summary>
     public interface IAimpPlaylistGroup
     {
         /// <summary>
-        /// Gets the name.
+        ///     Gets the name.
         /// </summary>
         string Name { get; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="IAimpPlaylistGroup"/> is expanded.
+        ///     Gets or sets a value indicating whether this <see cref="IAimpPlaylistGroup" /> is expanded.
         /// </summary>
         bool Expanded { get; set; }
 
         /// <summary>
-        /// Gets the total duration of items in the group, in seconds.
+        ///     Gets the total duration of items in the group, in seconds.
         /// </summary>
         double Duration { get; }
 
         /// <summary>
-        /// Gets the index.
+        ///     Gets the index.
         /// </summary>
         int Index { get; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="IAimpPlaylistGroup"/> is selected.
+        ///     Gets or sets a value indicating whether this <see cref="IAimpPlaylistGroup" /> is selected.
         /// </summary>
         bool Selected { get; set; }
 
         /// <summary>
-        /// Gets the count.
+        ///     Gets the count.
         /// </summary>
         int Count { get; }
 
         /// <summary>
-        /// Gets the item.
+        ///     Gets the item.
         /// </summary>
         /// <param name="index">The index.</param>
         /// <returns></returns>

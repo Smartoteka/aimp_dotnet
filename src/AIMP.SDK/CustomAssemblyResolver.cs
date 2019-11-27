@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 using System.IO;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace AIMP.SDK
         private static bool isInited;
 
         /// <summary>
-        /// Initializes the specified path.
+        ///     Initializes the specified path.
         /// </summary>
         /// <param name="path">The path.</param>
         public static void Initialize(string path)
@@ -35,7 +36,7 @@ namespace AIMP.SDK
         }
 
         /// <summary>
-        /// Deinitializes this instance.
+        ///     Deinitializes this instance.
         /// </summary>
         public static void Deinitialize()
         {
@@ -45,16 +46,16 @@ namespace AIMP.SDK
 
         private static Assembly CurrentDomainAssemblyResolve(object sender, ResolveEventArgs args)
         {
-            string projectDir = Path.GetDirectoryName(curPath);
+            var projectDir = Path.GetDirectoryName(curPath);
 
             var i = args.Name.IndexOf(',');
             if (i != -1)
             {
-                string shortAssemblyName = args.Name.Substring(0, args.Name.IndexOf(','));
-                string fileName = Path.Combine(projectDir, shortAssemblyName + ".dll");
+                var shortAssemblyName = args.Name.Substring(0, args.Name.IndexOf(','));
+                var fileName = Path.Combine(projectDir, shortAssemblyName + ".dll");
                 if (File.Exists(fileName))
                 {
-                    Assembly result = Assembly.LoadFrom(fileName);
+                    var result = Assembly.LoadFrom(fileName);
                     return result;
                 }
 

@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 using System.Runtime.InteropServices;
 using AIMP.SDK.Objects;
@@ -18,8 +19,8 @@ namespace AIMP.SDK
     {
         public static TObject GetObject<TObject>(IAimpCore core)
         {
-            Type type = typeof(TObject);
-            IntPtr header = IntPtr.Zero;
+            var type = typeof(TObject);
+            var header = IntPtr.Zero;
             if (type == typeof(IAimpString))
             {
                 var id = new Guid(AimpObject.AimpString);
@@ -28,7 +29,7 @@ namespace AIMP.SDK
 
             if (header == IntPtr.Zero)
             {
-                return default(TObject);
+                return default;
             }
 
             return GetObject<TObject>(header);
@@ -36,7 +37,7 @@ namespace AIMP.SDK
 
         public static TObject GetObject<TObject>(IntPtr header)
         {
-            return (TObject)Marshal.GetObjectForIUnknown(header);
+            return (TObject) Marshal.GetObjectForIUnknown(header);
         }
 
         public class AimpObject

@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 
 namespace AIMP.SDK.MusicLibrary.Extension.Command
@@ -15,10 +16,10 @@ namespace AIMP.SDK.MusicLibrary.Extension.Command
     public interface IAimpDataStorageCommandAddFilesDialog
     {
         /// <summary>
-        /// Executes the specified owner handle.
+        ///     Executes the specified owner handle.
         /// </summary>
         /// <param name="ownerHandle">The owner window handle.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult Execute(IntPtr ownerHandle);
     }
 }

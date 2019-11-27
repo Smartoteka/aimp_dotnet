@@ -8,11 +8,12 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
+using System;
+using System.Drawing;
+
 namespace AIMP.SDK.Win32
 {
-    using System;
-    using System.Drawing;
-
     public interface IWin32Manager
     {
         IntPtr GetAimpHandle();

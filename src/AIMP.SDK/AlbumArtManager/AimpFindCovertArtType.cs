@@ -8,12 +8,12 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
+using System;
+
 namespace AIMP.SDK.AlbumArtManager
 {
-    using System;
-
     /// <summary>
-    /// 
     /// </summary>
     [Flags]
     public enum AimpFindCovertArtType

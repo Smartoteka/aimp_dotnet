@@ -8,129 +8,130 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 using AIMP.SDK.ActionManager;
 using AIMP.SDK.AlbumArtManager;
 using AIMP.SDK.ConfigurationManager;
-using AIMP.SDK.MenuManager;
-using AIMP.SDK.MUIManager;
-using AIMP.SDK.Options;
-using AIMP.SDK.Playback;
-using AIMP.SDK.Win32;
 using AIMP.SDK.FileManager;
 using AIMP.SDK.Lyrics;
+using AIMP.SDK.MenuManager;
 using AIMP.SDK.MessageDispatcher;
+using AIMP.SDK.MUIManager;
 using AIMP.SDK.MusicLibrary;
+using AIMP.SDK.Options;
+using AIMP.SDK.Playback;
 using AIMP.SDK.Playlist;
 using AIMP.SDK.TagEditor;
 using AIMP.SDK.Threading;
+using AIMP.SDK.Win32;
 
 namespace AIMP.SDK.Player
 {
     /// <summary>
-    /// Interface IAimpPlayer
+    ///     Interface IAimpPlayer
     /// </summary>
     public interface IAimpPlayer : IDisposable
     {
         /// <summary>
-        /// Gets Player core.
+        ///     Gets Player core.
         /// </summary>
         IAimpCore Core { get; }
 
         /// <summary>
-        /// Gets player menu manager.
+        ///     Gets player menu manager.
         /// </summary>
         IAimpServiceMenuManager MenuManager { get; }
 
         /// <summary>
-        /// Gets player action manager.
+        ///     Gets player action manager.
         /// </summary>
         IAimpServiceActionManager ActionManager { get; }
 
         /// <summary>
-        /// Gets the MUI manager.
+        ///     Gets the MUI manager.
         /// </summary>
         // ReSharper disable InconsistentNaming
         IAimpMUIManager MUIManager { get; }
         // ReSharper restore InconsistentNaming
 
         /// <summary>
-        /// Gets the album art manager.
+        ///     Gets the album art manager.
         /// </summary>
         IAimpAlbumArtManager AlbumArtManager { get; }
 
         IAimpServiceAlbumArtCache ServiceAlbumArtCache { get; }
 
         /// <summary>
-        /// Gets the configuration manager.
+        ///     Gets the configuration manager.
         /// </summary>
         IAimpServiceConfig ServiceConfig { get; }
 
         /// <summary>
-        /// Gets the play list manager.
+        ///     Gets the play list manager.
         /// </summary>
         IAimpPlaylistManager2 PlaylistManager { get; }
 
         /// <summary>
-        /// Gets the playback queue manager.
+        ///     Gets the playback queue manager.
         /// </summary>
         IAimpPlaybackQueueService PlaybackQueueManager { get; }
 
         /// <summary>
-        /// Gets the service options dialog.
+        ///     Gets the service options dialog.
         /// </summary>
         IAimpServiceOptionsDialog ServiceOptionsDialog { get; }
 
         /// <summary>
-        /// Gets the service message dispatcher.
+        ///     Gets the service message dispatcher.
         /// </summary>
         IAimpServiceMessageDispatcher ServiceMessageDispatcher { get; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the volume is mute.
+        ///     Gets or sets a value indicating whether the volume is mute.
         /// </summary>
         /// <value><c>true</c> if this instance is mute; otherwise, <c>false</c>.</value>
         bool IsMute { get; set; }
 
         /// <summary>
-        /// Gets or sets the volume.
+        ///     Gets or sets the volume.
         /// </summary>
         /// <value>The volume.</value>
         float Volume { get; set; }
 
         /// <summary>
-        /// Gets the duration.
+        ///     Gets the duration.
         /// </summary>
         /// <value>The duration.</value>
         double Duration { get; }
 
         /// <summary>
-        /// Gets or sets the position.
+        ///     Gets or sets the position.
         /// </summary>
         /// <value>The position.</value>
         double Position { get; set; }
 
         /// <summary>
-        /// Gets the current player state <see cref="AimpPlayerState"/>.
+        ///     Gets the current player state <see cref="AimpPlayerState" />.
         /// </summary>
         /// <value>The state.</value>
         AimpPlayerState State { get; }
 
         /// <summary>
-        /// Gets the current playing file.
+        ///     Gets the current playing file.
         /// </summary>
         IAimpFileInfo CurrentFileInfo { get; }
 
         /// <summary>
-        /// Gets the current play list item.
+        ///     Gets the current play list item.
         /// </summary>
         /// <value>
-        /// The current play list item.
+        ///     The current play list item.
         /// </value>
         IAimpPlaylistItem CurrentPlaylistItem { get; }
 
         /// <summary>
-        /// Gets the win32 manager.
+        ///     Gets the win32 manager.
         /// </summary>
         IWin32Manager Win32Manager { get; }
 
@@ -151,7 +152,7 @@ namespace AIMP.SDK.Player
         IAimpServiceFileStreaming ServiceFileStreaming { get; }
 
         /// <summary>
-        /// Gets the file information formatter service.
+        ///     Gets the file information formatter service.
         /// </summary>
         IAimpServiceFileInfoFormatter ServiceFileInfoFormatter { get; }
 
@@ -160,49 +161,49 @@ namespace AIMP.SDK.Player
         IAimpServiceLyrics ServiceLyrics { get; }
 
         /// <summary>
-        /// Pauses player.
+        ///     Pauses player.
         /// </summary>
         void Pause();
 
         /// <summary>
-        /// Resumes player.
+        ///     Resumes player.
         /// </summary>
         void Resume();
 
         /// <summary>
-        /// Stops player.
+        ///     Stops player.
         /// </summary>
         void Stop();
 
         /// <summary>
-        /// Stops the after track.
+        ///     Stops the after track.
         /// </summary>
         void StopAfterTrack();
 
         /// <summary>
-        /// Goes to next track.
+        ///     Goes to next track.
         /// </summary>
         void GoToNext();
 
         /// <summary>
-        /// Goes to previous track.
+        ///     Goes to previous track.
         /// </summary>
         void GoToPrev();
 
         /// <summary>
-        /// Plays the specified queue item.
+        ///     Plays the specified queue item.
         /// </summary>
         /// <param name="queueItem">The queue item.</param>
         void Play(IAimpPlaybackQueueItem queueItem);
 
         /// <summary>
-        /// Plays the specified play list item.
+        ///     Plays the specified play list item.
         /// </summary>
         /// <param name="playlistItem">The play list item.</param>
         void Play(IAimpPlaylistItem playlistItem);
 
         /// <summary>
-        /// Plays the specified play list.
+        ///     Plays the specified play list.
         /// </summary>
         /// <param name="playList">The play list.</param>
         void Play(IAimpPlaylist playList);

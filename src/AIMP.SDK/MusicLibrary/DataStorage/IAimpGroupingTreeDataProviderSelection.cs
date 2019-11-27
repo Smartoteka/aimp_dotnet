@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 
 namespace AIMP.SDK.MusicLibrary.DataStorage
@@ -31,44 +32,44 @@ namespace AIMP.SDK.MusicLibrary.DataStorage
     }
 
     /// <summary>
-    /// Interface provides an access to data from the <seealso cref="IAimpGroupingTreeDataProvider.GetData"/>.
-    /// Interface implementation must support asynchronous access.
+    ///     Interface provides an access to data from the <seealso cref="IAimpGroupingTreeDataProvider.GetData" />.
+    ///     Interface implementation must support asynchronous access.
     /// </summary>
     public interface IAimpGroupingTreeDataProviderSelection
     {
         /// <summary>
-        /// Returns text to display to end user (optionally).
+        ///     Returns text to display to end user (optionally).
         /// </summary>
         /// <param name="displayValue">The display value.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetDisplayValue(out string displayValue);
 
         /// <summary>
-        /// Gets the tree node flags <see cref="GroupingTreeNodeFlags"/>.
-        /// <note>
-        /// AIMPML_GROUPINGTREENODE_FLAG_HASCHILDREN - current node has children.
-        /// AIMPML_GROUPINGTREENODE_FLAG_STANDALONE <see cref="IAimpGroupingTreeSelection"/>.
-        /// </note>
+        ///     Gets the tree node flags <see cref="GroupingTreeNodeFlags" />.
+        ///     <note>
+        ///         AIMPML_GROUPINGTREENODE_FLAG_HASCHILDREN - current node has children.
+        ///         AIMPML_GROUPINGTREENODE_FLAG_STANDALONE <see cref="IAimpGroupingTreeSelection" />.
+        ///     </note>
         /// </summary>
         GroupingTreeNodeFlags GetFlags();
 
         /// <summary>
-        /// Return the node image <see cref="FieldImageIndex"/>.
+        ///     Return the node image <see cref="FieldImageIndex" />.
         /// </summary>
-        /// <param name="imageIndex">Out. The image index <see cref="FieldImageIndex"/>.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <param name="imageIndex">Out. The image index <see cref="FieldImageIndex" />.</param>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetImageIndex(out FieldImageIndex imageIndex);
 
         /// <summary>
-        /// Returns the value for specified field name.
+        ///     Returns the value for specified field name.
         /// </summary>
         /// <param name="fieldName">THe current field name.</param>
         /// <param name="value"></param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetValue(out string fieldName, out object value);
 
         /// <summary>
-        /// Jumps to the next record. Returns False if current node is last.
+        ///     Jumps to the next record. Returns False if current node is last.
         /// </summary>
         bool NextRow();
     }

@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using AIMP.SDK.FileManager;
 
 namespace AIMP.SDK.TagEditor
@@ -24,7 +25,7 @@ namespace AIMP.SDK.TagEditor
     }
 
     /// <summary>
-    /// Provide possibility to access an file tag editor service.
+    ///     Provide possibility to access an file tag editor service.
     /// </summary>
     public interface IAimpServiceFileTagEditor : IAimpService
     {

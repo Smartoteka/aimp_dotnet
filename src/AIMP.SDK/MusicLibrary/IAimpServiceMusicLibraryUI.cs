@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.MusicLibrary
 {
     public enum FilesType
@@ -18,37 +19,37 @@ namespace AIMP.SDK.MusicLibrary
     }
 
     /// <summary>
-    /// Provides an access to data of UI elements for an active data storage that uses by the user.
+    ///     Provides an access to data of UI elements for an active data storage that uses by the user.
     /// </summary>
     public interface IAimpServiceMusicLibraryUI : IAimpService
     {
         /// <summary>
-        /// Gets the file list from table view.
+        ///     Gets the file list from table view.
         /// </summary>
         /// <param name="flags">The flags.</param>
         /// <param name="list">The list.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetFiles(FilesType flags, out IAimpFileList list);
 
         /// <summary>
-        /// Gets the grouping filter.
+        ///     Gets the grouping filter.
         /// </summary>
         /// <param name="filter">The filter.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetGroupingFilter(out IAimpDataFilter filter);
 
         /// <summary>
-        /// Gets the grouping filter path.
+        ///     Gets the grouping filter path.
         /// </summary>
         /// <param name="path">The path.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult GetGroupingFilterPath(out string path);
 
         /// <summary>
-        /// Sets the grouping filter path.
+        ///     Sets the grouping filter path.
         /// </summary>
         /// <param name="path">The path.</param>
-        /// <returns>Operation result <seealso cref="AimpActionResult"/></returns>
+        /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
         AimpActionResult SetGroupingFilterPath(string path);
     }
 }

@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.Options
 {
     public interface IAimpServiceOptionsDialog : IAimpService

@@ -8,25 +8,26 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.MusicLibrary.Presets
 {
     /// <summary>
-    /// Allow access to grouping preset.
+    ///     Allow access to grouping preset.
     /// </summary>
     public interface IAimpGroupingPreset
     {
         /// <summary>
-        /// Gets or sets the user custom data.
+        ///     Gets or sets the user custom data.
         /// </summary>
         string Custom { get; set; }
 
         /// <summary>
-        /// Gets or sets the preset identifier.
+        ///     Gets or sets the preset identifier.
         /// </summary>
         string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the preset name.
+        ///     Gets or sets the preset name.
         /// </summary>
         string Name { get; set; }
     }

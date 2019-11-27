@@ -8,11 +8,14 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace AIMP.SDK
 {
@@ -20,22 +23,22 @@ namespace AIMP.SDK
     public struct PluginShortInfoForLoad : IEquatable<PluginShortInfoForLoad>
     {
         /// <summary>
-        /// Gets or sets the name of the assembly file.
+        ///     Gets or sets the name of the assembly file.
         /// </summary>
         public string AssemblyFileName { get; set; }
 
         /// <summary>
-        /// Gets or sets the full name of the assembly.
+        ///     Gets or sets the full name of the assembly.
         /// </summary>
         public string AssemblyFullName { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the class.
+        ///     Gets or sets the name of the class.
         /// </summary>
         public string ClassName { get; set; }
 
         /// <summary>
-        /// Gets or sets the plugin loc information.
+        ///     Gets or sets the plugin loc information.
         /// </summary>
         public AimpPluginAttribute PluginLocInfo { get; set; }
 
@@ -56,20 +59,20 @@ namespace AIMP.SDK
     public class AssemblyScanPluginLoadStrategy : PluginLoadingStrategy
     {
         /// <summary>
-        /// Path to the plugin folder where additional dependencies will be searched for.
+        ///     Path to the plugin folder where additional dependencies will be searched for.
         /// </summary>
         private string _probePath;
 
         /// <summary>
-        /// In case one of plugin dependencies is required during its load and cannot be found in GAC,
-        /// this event handler gets executes by the .NET Framework.
-        /// Then we try to look in the plugin's folder for the requeseted dll and load it manually.
+        ///     In case one of plugin dependencies is required during its load and cannot be found in GAC,
+        ///     this event handler gets executes by the .NET Framework.
+        ///     Then we try to look in the plugin's folder for the requeseted dll and load it manually.
         /// </summary>
         private Assembly AssemblyResolveOverride(object sender, ResolveEventArgs args)
         {
-            string dllFileName = new AssemblyName(args.Name).Name + ".dll";
+            var dllFileName = new AssemblyName(args.Name).Name + ".dll";
 
-            string assemblyPath = Directory
+            var assemblyPath = Directory
                 .EnumerateFiles(_probePath, dllFileName, SearchOption.TopDirectoryOnly)
                 .FirstOrDefault();
 
@@ -78,8 +81,10 @@ namespace AIMP.SDK
 
         private IEnumerable<FileInfo> ScanFiles(DirectoryInfo di, int depth)
         {
-            foreach (FileInfo fileInfo in di.GetFiles("*.dll"))
+            foreach (var fileInfo in di.GetFiles("*.dll"))
+            {
                 yield return fileInfo;
+            }
 
             if (depth > 0)
             {
@@ -95,18 +100,18 @@ namespace AIMP.SDK
 
         public override PluginShortInfoForLoad Load(string path)
         {
-            DirectoryInfo dir = new DirectoryInfo(path);
-            PluginShortInfoForLoad resPlugInfolst = new PluginShortInfoForLoad();
-            Type pluginDeriveType = typeof(IAimpPlugin);
-            Type attribForPlugin = typeof(AimpPluginAttribute);
+            var dir = new DirectoryInfo(path);
+            var resPlugInfolst = new PluginShortInfoForLoad();
+            var pluginDeriveType = typeof(IAimpPlugin);
+            var attribForPlugin = typeof(AimpPluginAttribute);
             //var extensionType = typeof(IAimpExtension);
-            Type externalSettingsDialog = typeof(IAimpExternalSettingsDialog);
+            var externalSettingsDialog = typeof(IAimpExternalSettingsDialog);
 
             try
             {
                 AppDomain.CurrentDomain.AssemblyResolve += AssemblyResolveOverride;
 
-                foreach (FileInfo fileInfo in ScanFiles(dir, 0))
+                foreach (var fileInfo in ScanFiles(dir, 0))
                 {
                     try
                     {
@@ -120,12 +125,13 @@ namespace AIMP.SDK
                         var assemblyTypes = curAsmbl.GetTypes();
 
                         var plgType = assemblyTypes.FirstOrDefault(o => pluginDeriveType.IsAssignableFrom(o)
-                                                              && o.GetCustomAttributes(attribForPlugin, false).Length == 1);
+                                                                        && o.GetCustomAttributes(attribForPlugin, false)
+                                                                            .Length == 1);
 
                         if (plgType != null)
                         {
-                            var curAttr = (AimpPluginAttribute)plgType.GetCustomAttributes(attribForPlugin, false)[0];
-                            System.Diagnostics.Debug.WriteLine("Load plugin: " + curAsmbl.FullName);
+                            var curAttr = (AimpPluginAttribute) plgType.GetCustomAttributes(attribForPlugin, false)[0];
+                            Debug.WriteLine("Load plugin: " + curAsmbl.FullName);
                             curAttr.IsExternalSettingsDialog = externalSettingsDialog.IsAssignableFrom(plgType);
 
                             resPlugInfolst = new PluginShortInfoForLoad
@@ -162,11 +168,11 @@ namespace AIMP.SDK
 
             try
             {
-                AppDomainSetup domainSet = new AppDomainSetup {ApplicationBase = path};
+                var domainSet = new AppDomainSetup {ApplicationBase = path};
                 loadDomain = AppDomain.CreateDomain(
                     "PluginLoadDomain" + new Guid().ToString().GetHashCode().ToString("x"), null, domainSet);
 
-                PluginLoadingStrategy strat =
+                var strat =
                     (PluginLoadingStrategy) loadDomain.CreateInstanceAndUnwrap(Assembly.GetExecutingAssembly().FullName,
                         LoadStrategyType.FullName);
 
@@ -190,13 +196,15 @@ namespace AIMP.SDK
 #if DEBUG
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message);
             }
 #endif
             finally
             {
                 if (loadDomain != null)
+                {
                     AppDomain.Unload(loadDomain);
+                }
             }
 
             return null;

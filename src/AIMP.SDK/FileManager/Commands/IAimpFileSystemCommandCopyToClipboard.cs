@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System.Collections.Generic;
 
 namespace AIMP.SDK.FileManager.Commands

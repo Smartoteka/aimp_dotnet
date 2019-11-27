@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 using System.Runtime.InteropServices;
 
@@ -19,14 +20,14 @@ namespace AIMP.SDK.Objects
         Lower = 1,
         Upper = 2,
         AllWordsWithCapicalLetter = 3,
-        FirstWordWithCapicalLetter = 4,
+        FirstWordWithCapicalLetter = 4
     }
 
     [Flags]
     public enum AIMPStringFindFlags
     {
         IgnoreCase = 1,
-        WholeWord = 2,
+        WholeWord = 2
     }
 
     public class MyOwnMarshalPtrToStringUni : ICustomMarshaler
@@ -96,7 +97,8 @@ namespace AIMP.SDK.Objects
 
         AimpActionResult Find(IAimpString str, out int index, AIMPStringFindFlags flags, int startFromIndex);
 
-        AimpActionResult Find(string chars, int charsCount, out int index, AIMPStringFindFlags flags, int startFromIndex);
+        AimpActionResult Find(string chars, int charsCount, out int index, AIMPStringFindFlags flags,
+            int startFromIndex);
 
         AimpActionResult Insert(int index, IAimpString str);
 
@@ -104,7 +106,8 @@ namespace AIMP.SDK.Objects
 
         AimpActionResult Replace(IAimpString oldPattern, IAimpString newPattern, int flags);
 
-        AimpActionResult Replace(string oldPatternChars, int oldPatternCharsCount, string newPatternChars, int newPatternCharsCount, int flags);
+        AimpActionResult Replace(string oldPatternChars, int oldPatternCharsCount, string newPatternChars,
+            int newPatternCharsCount, int flags);
 
         AimpActionResult SubString(int index, int count, out IAimpString str);
     }

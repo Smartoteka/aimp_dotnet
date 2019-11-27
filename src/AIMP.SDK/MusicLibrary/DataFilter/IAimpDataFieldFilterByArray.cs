@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System.Collections.Generic;
 
 namespace AIMP.SDK.MusicLibrary.DataFilter
@@ -15,7 +16,7 @@ namespace AIMP.SDK.MusicLibrary.DataFilter
     public interface IAimpDataFieldFilterByArray
     {
         /// <summary>
-        /// Gets or sets the filter field.
+        ///     Gets or sets the filter field.
         /// </summary>
         string Field { get; set; }
 

@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
@@ -42,4 +43,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("4.11.1842.1")]
 [assembly: NeutralResourcesLanguage("")]
 [assembly: AssemblyFileVersion("4.11.1842.1")]
-[assembly: AssemblyInformationalVersion("4.11.1842-beta.1+67.Branch.feature/NukeBuild.Sha.ff744836ccc3932fd42a034a0d49be2de1be26fa")]
+[assembly:
+    AssemblyInformationalVersion(
+        "4.11.1842-beta.1+67.Branch.feature/NukeBuild.Sha.ff744836ccc3932fd42a034a0d49be2de1be26fa")]

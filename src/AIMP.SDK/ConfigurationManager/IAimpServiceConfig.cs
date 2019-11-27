@@ -8,15 +8,16 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.ConfigurationManager
 {
     /// <summary>
-    /// Configuration manager.
+    ///     Configuration manager.
     /// </summary>
     public interface IAimpServiceConfig : IAimpConfig, IAimpService
     {
         /// <summary>
-        /// Flushes the cache.
+        ///     Flushes the cache.
         /// </summary>
         AimpActionResult FlushCache();
     }

@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.MusicLibrary.Extension.Command
 {
     public interface IAimpDataStorageCommandDropData

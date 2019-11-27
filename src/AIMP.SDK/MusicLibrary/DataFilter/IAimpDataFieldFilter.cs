@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.MusicLibrary.DataFilter
 {
     public enum FieldFilterOperationType
@@ -27,22 +28,23 @@ namespace AIMP.SDK.MusicLibrary.DataFilter
     public interface IAimpDataFieldFilter
     {
         /// <summary>
-        /// Gets or sets the filter field.
+        ///     Gets or sets the filter field.
         /// </summary>
         string Field { get; set; }
 
         /// <summary>
-        /// Gets or sets the filter operation.
+        ///     Gets or sets the filter operation.
         /// </summary>
         FieldFilterOperationType Operation { get; set; }
 
         /// <summary>
-        /// Gets or sets the filter value.
+        ///     Gets or sets the filter value.
         /// </summary>
         object Value1 { get; set; }
 
         /// <summary>
-        /// This value is used if the <see cref="IAimpDataFieldFilter.Operation"/> property is set to the <see cref="FieldFilterOperationType.AIMPML_FIELDFILTER_OPERATION_BETWEEN"/> value.
+        ///     This value is used if the <see cref="IAimpDataFieldFilter.Operation" /> property is set to the
+        ///     <see cref="FieldFilterOperationType.AIMPML_FIELDFILTER_OPERATION_BETWEEN" /> value.
         /// </summary>
         object Value2 { get; set; }
     }

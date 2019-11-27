@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 namespace AIMP.SDK.MusicLibrary.DataStorage
 {
     public class AimpDataField : IAimpDataField
@@ -27,20 +28,21 @@ namespace AIMP.SDK.MusicLibrary.DataStorage
         }
 
         /// <summary>
-        /// Gets or sets the user data. That data will be attached to the instance of interface.
+        ///     Gets or sets the user data. That data will be attached to the instance of interface.
         /// </summary>
         public string Custom { get; set; }
 
         /// <summary>
-        /// Gets ot sets the internal name of the field that used as a unique identifier for current data storage.
-        /// The displayed name takes from localization (AIMPML\<FieldName).
+        ///     Gets ot sets the internal name of the field that used as a unique identifier for current data storage.
+        ///     The displayed name takes from localization (AIMPML\<FieldName).
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of field <see cref="AimpDataFieldType"/>.
+        ///     Gets or sets the type of field <see cref="AimpDataFieldType" />.
         /// </summary>
         public AimpDataFieldType Type { get; set; }
+
         public AimpDataFieldFlagsType Flags { get; set; }
         public ImageType Image { get; set; }
         public string DisplayValue { get; set; }

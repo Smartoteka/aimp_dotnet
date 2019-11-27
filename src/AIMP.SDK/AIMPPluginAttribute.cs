@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 
 namespace AIMP.SDK
@@ -21,14 +22,14 @@ namespace AIMP.SDK
     }
 
     /// <summary>
-    /// This attribute should mark plugin class
+    ///     This attribute should mark plugin class
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     [Serializable]
     public sealed class AimpPluginAttribute : Attribute
     {
         /// <summary>
-        /// Mark AIMP plugin class
+        ///     Mark AIMP plugin class
         /// </summary>
         /// <param name="name">Plugin's name</param>
         /// <param name="author">Plugin's author</param>
@@ -41,42 +42,42 @@ namespace AIMP.SDK
         }
 
         /// <summary>
-        /// Plugin's author
+        ///     Plugin's author
         /// </summary>
         public string Author { get; set; }
 
         /// <summary>
-        /// Plugin's name
+        ///     Plugin's name
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Short description
+        ///     Short description
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// Defined if plugin should run in separate AppDomain.
+        ///     Defined if plugin should run in separate AppDomain.
         /// </summary>
         public bool RequireAppDomain { get; set; }
 
-        ///<summary>
-        /// Version of plugin (format: x.xx)
-        ///</summary>
+        /// <summary>
+        ///     Version of plugin (format: x.xx)
+        /// </summary>
         public string Version { get; set; }
 
         /// <summary>
-        /// Gets or sets the full description.
+        ///     Gets or sets the full description.
         /// </summary>
         public string FullDescription { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the aimp plugin.
+        ///     Gets or sets the type of the aimp plugin.
         /// </summary>
         public AimpPluginType AimpPluginType { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this plugin is support external settings dialog.
+        ///     Gets or sets a value indicating whether this plugin is support external settings dialog.
         /// </summary>
         public bool IsExternalSettingsDialog { get; set; }
     }

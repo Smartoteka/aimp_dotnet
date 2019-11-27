@@ -8,6 +8,7 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
+
 using System;
 
 namespace AIMP.SDK
@@ -20,7 +21,8 @@ namespace AIMP.SDK
             Message = message;
         }
 
-        public AimpErrorArgs(AimpActionResult aimpActionResult, string message, string stackTrace) : this(aimpActionResult, message)
+        public AimpErrorArgs(AimpActionResult aimpActionResult, string message, string stackTrace) : this(
+            aimpActionResult, message)
         {
             StackTrace = stackTrace;
         }

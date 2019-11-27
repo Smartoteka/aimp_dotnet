@@ -8,14 +8,12 @@
 // Mail: mail4evgeniy@gmail.com
 // 
 // ----------------------------------------------------
-using AIMP.SDK.Objects;
 
 namespace AIMP.SDK.FileManager.Commands
 {
     public interface IAimpFileSystemCommandDropSource : IAimpFileSystemCommand
     {
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="fileName"></param>
         IAimpStream CreateStream(string fileName);
