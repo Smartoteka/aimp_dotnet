@@ -11,6 +11,7 @@
 
 #include "Stdafx.h"
 #include "DotNetPlugin.h"
+#include "SDK/MemoryManager.h"
 
 DotNetPlugin::DotNetPlugin()
 {

@@ -30,6 +30,8 @@ namespace AIMP
             virtual AimpActionResult IsSupported(String^ fileName, FileFormats flags);
         protected:
             IAIMPServiceFileFormats* GetAimpService() override;
+        public:
+            virtual AimpResult<String^>^ GetFormats(FileFormats flags);
         };
     }
 }

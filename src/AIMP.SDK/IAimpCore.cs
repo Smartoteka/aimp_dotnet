@@ -27,7 +27,7 @@ namespace AIMP.SDK
         /// <summary>
         ///     Gets the path to one of the "system" folders of player.
         /// </summary>
-        /// <param name="aimpCorePath">The aimp core path <seealso cref="AimpMessages.AimpCorePathType" /> type.</param>
+        /// <param name="aimpCorePath">The aimp core path <seealso cref="AimpCorePathType" /> type.</param>
         string GetPath(AimpCorePathType aimpCorePath);
 
         /// <summary>

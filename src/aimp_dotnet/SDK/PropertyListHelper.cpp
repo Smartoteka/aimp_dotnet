@@ -38,8 +38,6 @@ AimpActionResult PropertyListExtension::SetString(IAIMPPropertyList* propertyLis
         str->Release();
         str = nullptr;
     }
-
-    return AimpActionResult::Unexpected;
 }
 
 AimpActionResult PropertyListExtension::SetInt32(IAIMPPropertyList* propertyList, int propertyId, int value)

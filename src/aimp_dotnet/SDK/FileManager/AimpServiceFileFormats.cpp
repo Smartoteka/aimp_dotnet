@@ -75,3 +75,31 @@ IAIMPServiceFileFormats* AimpServiceFileFormats::GetAimpService()
     GetService(IID_IAIMPServiceFileFormats, &service);
     return service;
 }
+
+AimpResult<String^>^ AimpServiceFileFormats::GetFormats(FileFormats flags)
+{
+    IAIMPServiceFileFormats* service = GetAimpService();
+    AimpActionResult result = AimpActionResult::Fail;
+    IAIMPString* str = nullptr;
+    String^ formats = "";
+
+    try
+    {
+        if (service != nullptr)
+        {
+            result = CheckResult(service->GetFormats(DWORD(flags), &str));
+
+            if (result == AimpActionResult::OK)
+            {
+                formats = AimpConverter::ToManagedString(str);
+            }
+        }
+    }
+    finally
+    {
+        ReleaseObject(service);
+        ReleaseObject(str);
+    }
+
+    return gcnew AimpResult<String^>(result, formats);
+}

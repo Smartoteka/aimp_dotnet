@@ -248,7 +248,7 @@ namespace AIMP.DotNet.MusicLibrary
             var result = EnumDataFieldFilters(filter, fieldFilter =>
             {
                 var res = fieldFilter.Field == EVDS_Fake || fieldFilter.Field == FieldNode;
-                res = res &
+                res = res &&
                       (fieldFilter.Operation == FieldFilterOperationType.AIMPML_FIELDFILTER_OPERATION_BEGINSWITH ||
                        fieldFilter.Operation == FieldFilterOperationType.AIMPML_FIELDFILTER_OPERATION_EQUALS);
 

@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include "MemoryManager.h"
+
 template<class TAimpObject>
 public ref class AimpObject
 {
@@ -22,12 +24,13 @@ protected:
 public:
     AimpObject(TAimpObject *aimpObject) : _aimpObject(aimpObject)
     {
+        //MemoryManager::getInstance()->Add(aimpObject);
     }
 
     !AimpObject()
     {
         FreeResources();
-        _aimpObject->Release();
+        //MemoryManager::getInstance()->Dispose(_aimpObject);
     }
 
     ~AimpObject()
@@ -42,7 +45,7 @@ protected:
 
     virtual void FreeResources()
     {
-        
+        _aimpObject->Release();
     }
 internal:
     property TAimpObject *InternalAimpObject

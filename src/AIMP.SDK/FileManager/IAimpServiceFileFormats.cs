@@ -26,12 +26,19 @@ namespace AIMP.SDK.FileManager
     public interface IAimpServiceFileFormats : IAimpService
     {
         /// <summary>
-        ///     Gets the availabel file formats.
+        ///     Gets the available file formats.
         /// </summary>
         /// <param name="flags"></param>
         /// <param name="formats">Out. File formats.</param>
         /// <returns>Operation result <seealso cref="AimpActionResult" /></returns>
+        [Obsolete("Use without out parameter")]
         AimpActionResult GetFormats(FileFormats flags, out string formats);
+
+        /// <summary>
+        ///     Gets the available file formats.
+        /// </summary>
+        /// <param name="flags"></param>
+        AimpResult<string> GetFormats(FileFormats flags);
 
         /// <summary>
         ///     Check is the file extension supported.

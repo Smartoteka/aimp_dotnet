@@ -429,6 +429,9 @@
     <ClCompile Include="SDK\PlayList\Internal\InternalAimpPlaylistPreimage.cpp">
       <Filter>Source Files\SDK\PlayList</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\MemoryManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DotNetPlugin.h">
@@ -838,6 +841,9 @@
     </ClInclude>
     <ClInclude Include="SDK\PlayList\Internal\InternalAimpPlaylistPreimage.h">
       <Filter>Header Files\SDK\PlayList</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\MemoryManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

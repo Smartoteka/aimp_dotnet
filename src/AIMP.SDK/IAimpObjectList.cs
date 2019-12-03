@@ -9,6 +9,8 @@
 // 
 // ----------------------------------------------------
 
+using System;
+
 namespace AIMP.SDK
 {
     /// <summary>
@@ -53,6 +55,7 @@ namespace AIMP.SDK
         /// <param name="index">The zero-based index of the element to get.</param>
         /// <param name="item">The item at specified <paramref name="index" />.</param>
         /// <returns>The <see cref="AimpActionResult" /> result.</returns>
+        [Obsolete("Use without out")]
         AimpActionResult GetObject(int index, out TObject item);
 
         /// <summary>
@@ -62,6 +65,12 @@ namespace AIMP.SDK
         /// <param name="item">The item to set.</param>
         /// <returns>The <see cref="AimpActionResult" /> result.</returns>
         AimpActionResult SetObject(int index, TObject item);
+
+        /// <summary>
+        ///     Gets the element at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index of the element to get.</param>
+        AimpResult<TObject> GetObject(int index);
     }
 
     public interface IAimpObjectList
@@ -111,5 +120,11 @@ namespace AIMP.SDK
         /// <param name="item">The item to set.</param>
         /// <returns>The <see cref="AimpActionResult" /> result.</returns>
         AimpActionResult SetObject(int index, object item);
+
+        /// <summary>
+        ///     Gets the element at the specified index.
+        /// </summary>
+        /// <param name="index">The zero-based index of the element to get.</param>
+        AimpResult<object> GetObject(int index);
     }
 }

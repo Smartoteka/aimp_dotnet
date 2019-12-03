@@ -72,3 +72,25 @@ AimpActionResult AimpObjectList<T>::SetObject(int index, T item)
 {
     return Utils::CheckResult(_nativeObject->SetObject(index, AimpConverter::ToAimpString((String^)item)));
 }
+
+generic <class T>
+AimpResult<T>^ AimpObjectList<T>::GetObject(int index)
+{
+    IAIMPString* str;
+    AimpActionResult result = Utils::CheckResult(_nativeObject->GetObject(index, IID_IAIMPString, reinterpret_cast<void**>(&str)));
+    T item;
+
+    if (result == AimpActionResult::OK && str != nullptr)
+    {
+        item = (T)AimpConverter::ToManagedString(str);
+        str->Release();
+        str = nullptr;
+    }
+
+    return gcnew AimpResult<T>(result, item);
+}
+
+AimpResult<Object^>^ AimpObjectList2::GetObject(int index)
+{
+    return gcnew AimpResult<Object^>(AimpActionResult::Fail, nullptr);
+}

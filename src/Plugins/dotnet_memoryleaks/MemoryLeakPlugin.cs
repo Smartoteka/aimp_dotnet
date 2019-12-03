@@ -1,5 +1,6 @@
 ﻿using System;
 using AIMP.SDK;
+using AIMP.SDK.MenuManager;
 using AIMP.SDK.MessageDispatcher;
 using AIMP.SDK.Player;
 
@@ -29,15 +30,36 @@ namespace Aimp.DotNet.MemoryLeaks
     public class MemoryLeakPlugin : AimpPlugin
     {
         private IAimpMessageHook _hook;
+        IAimpMenuItem demoFormItem;
 
         public override void Initialize()
         {
-            _hook = new AimpHook(Player);
-            Player.ServiceMessageDispatcher.Hook(_hook);
+            //_hook = new AimpHook(Player);
+            //Player.ServiceMessageDispatcher.Hook(_hook);
+
+            if (Player.MenuManager.CreateMenuItem(out demoFormItem) == AimpActionResult.OK)
+            {
+                demoFormItem.Name = "Open demo form";
+                demoFormItem.Id = "demo_form";
+                demoFormItem.Style = AimpMenuItemStyle.CheckBox;
+
+                demoFormItem.OnExecute += (sender, args) =>
+                {
+
+                };
+
+                demoFormItem.OnShow += (sender, args) =>
+                {
+                    var item = sender as IAimpMenuItem;
+                };
+
+                Player.MenuManager.Add(ParentMenuType.AIMP_MENUID_COMMON_UTILITIES, demoFormItem);
+            }
         }
 
         public override void Dispose()
         {
+            //GC.Collect();
         }
     }
 }
